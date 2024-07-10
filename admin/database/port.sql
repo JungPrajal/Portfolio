@@ -36,7 +36,7 @@ SET
 DROP TABLE IF EXISTS `about`;
 
 CREATE TABLE IF NOT EXISTS `about` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `image` tinyblob NOT NULL,
   `description` text NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `about` (
 DROP TABLE IF EXISTS `features`;
 
 CREATE TABLE IF NOT EXISTS `features` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `icon` blob NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `features` (
 DROP TABLE IF EXISTS `files`;
 
 CREATE TABLE IF NOT EXISTS `files` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `status` int NOT NULL DEFAULT '1',
@@ -86,10 +86,22 @@ CREATE TABLE IF NOT EXISTS `files` (
 DROP TABLE IF EXISTS `hero`;
 
 CREATE TABLE IF NOT EXISTS `hero` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `sub_title` varchar(50) NOT NULL,
   `image` tinyblob NOT NULL,
+  `status` int NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `resume_category`;
+
+CREATE TABLE IF NOT EXISTS `resume_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `description` text NOT NULL,
   `status` int NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -103,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `hero` (
 DROP TABLE IF EXISTS `resume`;
 
 CREATE TABLE IF NOT EXISTS `resume` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `resume_category_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `start_date` date NOT NULL,
@@ -121,18 +133,6 @@ CREATE TABLE IF NOT EXISTS `resume` (
 --
 -- Table structure for table `resume_category`
 --
-DROP TABLE IF EXISTS `resume_category`;
-
-CREATE TABLE IF NOT EXISTS `resume_category` (
-  `id` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `description` text NOT NULL,
-  `status` int NOT NULL DEFAULT '1',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 --
 -- Table structure for table `services`
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `resume_category` (
 DROP TABLE IF EXISTS `services`;
 
 CREATE TABLE IF NOT EXISTS `services` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `icon` tinyblob NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `services` (
 DROP TABLE IF EXISTS `settings`;
 
 CREATE TABLE IF NOT EXISTS `settings` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `site_key` varchar(100) NOT NULL,
   `site_value` varchar(100) NOT NULL,
   `status` int NOT NULL DEFAULT '1',
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 DROP TABLE IF EXISTS `skills`;
 
 CREATE TABLE IF NOT EXISTS `skills` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `status` int NOT NULL DEFAULT '1',
@@ -206,14 +206,14 @@ CREATE TABLE IF NOT EXISTS `sliders` (
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(60) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `id` int(60) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50)  NULL,
   `username` varchar(50) NOT NULL,
-  `address` varchar(60) NOT NULL,
-  `phone` int(20) NOT NULL,
+  `address` varchar(60)  NULL,
+  `phone` int(20)  NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `role` int(20) NOT NULL,
+  `role` int(20)  NULL,
   `status` int NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

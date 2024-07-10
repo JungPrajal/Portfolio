@@ -1,5 +1,6 @@
 <?php require('../layouts/header.php'); ?>
 
+
 <body>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
@@ -34,24 +35,64 @@
                     <small class="text-muted float-end">Add Users</small>
                   </div>
                   <div class="card-body">
-                    <form>
+
+                    <!-- php -->
+                    <?php
+                    if (isset($_POST['save'])) {
+                      $name = $_POST['name'];
+                      $email = $_POST['username'];
+
+                      $address = $_POST['address'];
+                      $phone = $_POST['phone'];
+                      $email = $_POST['email'];
+                      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                      $role = $_POST['role'];
+
+
+                      if ($name !== "" && $username !== "" && $address !== "" && $phone !== "" && $email !== "" && $password !== "" && $role !== "") {
+                        $query = "INSERT INTO users (name,username, address,phone, email, password, role) VALUES ('$name','$username','$address','$phone','$email', '$password', '$role')";
+                        $result = mysqli_query($con, $query);
+
+                        if ($result) {
+                          echo "<p class='text-success'>Data are Submitted</p>";
+                          // header('Refresh:2; URL=index.php');
+                          echo "<meta http-equiv=\"refresh\" content=\"2;URL=index.php\">";
+                        } else {
+                          echo "<p class='text-warning'>Data are not submitted</p>";
+                          header('Refresh:2; URL=create.php');
+                        }
+                      } else {
+                        echo "<p class='text-danger'>Please fill all fields</p>";
+                        header('Refresh:2; URL=create.php');
+                      }
+                    }
+
+                    ?>
+                    <form action="" method="POST" enctype="multipart/form-data">
                       <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="basic-default-name" placeholder="Please enter your name" />
+                          <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="Please enter your name" />
                         </div>
                       </div>
                       <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">Company</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Username</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="basic-default-company" placeholder="Enter your company name" />
+                          <input type="text" name="username" class="form-control" id="basic-default-company" placeholder="Enter your username" />
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Address</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="address" class="form-control" id="basic-default-company" placeholder="Enter your address" />
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
-                            <input type="text" id="basic-default-email" class="form-control" placeholder="john.doe" aria-label="Enter your email address" aria-describedby="basic-default-email2" />
+                            <input type="text" id="basic-default-email" name="email" class="form-control" placeholder="" aria-label="Enter your email address" aria-describedby="basic-default-email2" />
                             <span class="input-group-text" id="basic-default-email2">@gmail.com</span>
                           </div>
                           <div class="form-text">You can use letters, numbers & periods</div>
@@ -60,25 +101,39 @@
                       <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-phone">Phone No</label>
                         <div class="col-sm-10">
-                          <input type="text" id="basic-default-phone" class="form-control phone-mask" placeholder="+977**********" aria-label="658 799 8941" aria-describedby="basic-default-phone" />
+                          <input type="text" id="basic-default-phone" name="phone" class="form-control phone-mask" placeholder="+977**********" aria-label="658 799 8941" aria-describedby="basic-default-phone" />
                         </div>
                       </div>
                       <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-message">Message</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Password</label>
                         <div class="col-sm-10">
-                          <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Leave your message here" aria-describedby="basic-icon-default-message2"></textarea>
+                          <input type="text" class="form-control" name="password" id="basic-default-company" placeholder="Enter your Password" />
+                          <div class="form-text">password needs to be more than eight characters.
+                          </div>
                         </div>
                       </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Role</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" name="role" aria-label="Default select example">
+                            <option selected>Select Role</option>
+                            <option value="0">Admin</option>
+                            <option value="1">User</option>
+                            <option value="2">Manager</option>
+                          </select>
+                        </div>
+                      </div>
+
                       <div class="row justify-content-end">
                         <div class="col-sm-10">
-                          <button type="submit" class="btn btn-primary">Send</button>
+                          <button type="submit" name="save" class="btn btn-primary">Send</button>
                         </div>
                       </div>
                     </form>
                   </div>
                 </div>
               </div>
-             
+
             </div>
           </div>
           <!-- / Content -->
