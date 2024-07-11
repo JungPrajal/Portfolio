@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `skills` (
 DROP TABLE IF EXISTS `sliders`;
 
 CREATE TABLE IF NOT EXISTS `sliders` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) DEFAULT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `image` mediumblob NOT NULL,
