@@ -8,7 +8,7 @@
                 <?php require('../layouts/navbar.php'); ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Manage skills</span></h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Manage Sliders</span></h4>
                         
                         <!-- Add Slider Form -->
                         <div class="container my-4">
