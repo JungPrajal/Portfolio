@@ -19,7 +19,7 @@
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4">
-              <a class="btn btn-primary btn-sm" href="create.php" role="button">Create Slider</a>
+              <a class="btn btn-primary btn-sm" href="create.php" role="button">Create Hero</a>
             </h4>
 
             <div class="card">
