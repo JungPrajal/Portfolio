@@ -15,7 +15,6 @@
                                 <div class="card mb-4">
                                     <div class="card-body">
                                         <?php
-                                        // PHP code goes here
                                         if (isset($_GET['id'])) {
                                             $id = $_GET['id'];
                                             $sql = "SELECT * FROM skills WHERE id = '$id'";
@@ -29,7 +28,7 @@
                                             $status = $_POST['status'];
 
                                             if ($title !== "" && $description !== "" && $status !== "") {
-                                                $query = "UPDATE skills SET title='$title', description='$description', status='$status',  WHERE id=$id";
+                                                $query = "UPDATE skills SET title='$title', description='$description', status='$status' WHERE id=$id";
                                                 $result = mysqli_query($con, $query);
                                                 if ($result) {
                                                     echo "<div class='alert alert-success'>Skills updated successfully.</div>";
@@ -77,4 +76,3 @@
     <?php require('../layouts/footer.php'); ?>
 </body>
 
-</html>
