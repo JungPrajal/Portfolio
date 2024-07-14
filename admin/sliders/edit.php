@@ -123,4 +123,4 @@
     <?php require('../layouts/footer.php'); ?>
 </body>
 
-</html>
+

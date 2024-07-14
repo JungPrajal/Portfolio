@@ -101,4 +101,4 @@
         </div>
     </div>
 </body>
-<?php require('../layouts/scripts.php'); ?>
+
