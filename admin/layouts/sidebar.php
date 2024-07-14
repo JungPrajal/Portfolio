@@ -95,7 +95,212 @@
                 </li>
               </ul>
             </li>
-              <!-- users -->
+              
+
+              <!-- sliders -->
+              <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-sliders-h"></i>
+                <div data-i18n="Layouts">Sliders</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../sliders/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add sliders</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../sliders/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage sliders</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- skills -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-user-cog"></i>
+                <div data-i18n="Layouts">Sliders</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../skills/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add sliders</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../skills/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage sliders</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- settings -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-cog"></i>
+                <div data-i18n="Layouts">Settings</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../settings/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add Settings</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../settings/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage Settings</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- services -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-handshake"></i>
+                <div data-i18n="Layouts">Services</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../services/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add Services</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../services/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage Services</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- resume-category -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon  fas fa-tags"></i>
+                <div data-i18n="Layouts">resume_category</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../resume_category/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add resume_category</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../resume_category/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage resume_category</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- resume -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-id-card"></i>
+                <div data-i18n="Layouts">resume</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../resume/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add resume</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../resume/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage resume</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- hero -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-star"></i>
+                <div data-i18n="Layouts">hero</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../hero/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add hero</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../hero/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage hero</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- files -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-file"></i>
+                <div data-i18n="Layouts">files</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../files/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add files</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../files/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage files</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- features -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-cogs"></i>
+                <div data-i18n="Layouts">features</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../features/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add features</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../features/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage features</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- about -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-info-circle"></i>
+                <div data-i18n="Layouts">about</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../about/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add about</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../about/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage about</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
 
             
           </ul>
