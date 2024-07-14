@@ -1,6 +1,6 @@
 <?php require('../config/config.php')?> 
 
-<?php
+ <?php
 
 
 
@@ -15,7 +15,7 @@ if (isset($msg)) {
         header('Refresh:2; URL=index.php');
     }
 }
-?>
+?> 
 
 <!DOCTYPE html>
 
@@ -73,22 +73,22 @@ if (isset($msg)) {
 
   <body>
     <!-- Content -->
-    <?php
+    
 
-if (isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
+<!-- // if (isset($_GET['msg'])) {
+//     $msg = $_GET['msg'];
 
-    if ($msg == 'warning') {
-        echo "<p class='text-danger'>Fill up all fields</p>";
-        header('Refresh:2; URL=index.php');
-    }
-    if ($msg == 'error') {
-        echo "<p class='text-danger'>Email or pasword does not match, Try Again!</p>";
-        header('Refresh:2; URL=index.php');
-    }
-}
+//     if ($msg == 'warning') {
+//         echo "<p class='text-danger'>Fill up all fields</p>";
+//         header('Refresh:2; URL=index.php');
+//     }
+//     if ($msg == 'error') {
+//         echo "<p class='text-danger'>Email or pasword does not match, Try Again!</p>";
+//         header('Refresh:2; URL=index.php');
+//     }
+// }
 
-?>
+//  -->
 
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
