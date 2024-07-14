@@ -1,17 +1,7 @@
+<?php require('../config/config.php')?>
 <!DOCTYPE html>
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
 
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -27,7 +17,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Register </title>
 
     <meta name="description" content="" />
 
@@ -38,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap"
       rel="stylesheet"
     />
 
@@ -73,6 +63,30 @@
           <!-- Register Card -->
           <div class="card">
             <div class="card-body">
+
+            <?php 
+            if(isset($_POST['save'])){ 
+              $name = $_POST['name'];
+              $email = $_POST['email'];
+              $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+              if ($name != "" && $email != "" && $password != "") {
+                $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+                $result = mysqli_query($con, $query);
+
+                if ($result) {
+                    echo "<p class='text-success'>Account is created</p>";
+                    header('Refresh:2; URL=index.php');
+                } else {
+                    echo "<p class='text-warning'>Account is not created</p>";
+                    header('Refresh:2; URL=register.php');
+                }
+              } else {
+                echo "<p class='text-danger'>Please fill all fields</p>";
+                header('Refresh:2; URL=register.php');
+              }
+            }
+            ?>
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
@@ -98,7 +112,7 @@
                           id="path-4"
                         ></path>
                         <path
-                          d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
+                          d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967769 19.3163444,6.07059162 20.2,6.73333333 C20.4024086,6.8851287 20.5858713,7.06859141 20.7376667,7.271 C20.7376667,7.271 20.5,7 20.6,7.13333333 Z"
                           id="path-5"
                         ></path>
                       </defs>
@@ -137,39 +151,48 @@
               <!-- /Logo -->
               <h4 class="mb-2">Adventure starts here 🚀</h4>
               <p class="mb-4">Make your app management easy and fun!</p>
-              
 
               <form id="formAuthentication" class="mb-3" action="" method="POST">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
+                  <label for="name" class="form-label">name</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Enter your username"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
                     autofocus
                   />
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
                 </div>
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Password</label>
+                    <a href="auth-forgot-password-basic.html">
+                      <small>Forgot Password?</small>
+                    </a>
+                  </div>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
                       id="password"
                       class="form-control"
                       name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      placeholder="············"
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
@@ -179,7 +202,7 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
+                <button class="btn btn-primary d-grid w-100" name="save">Sign up</button>
               </form>
 
               <p class="text-center">
@@ -196,15 +219,6 @@
     </div>
 
     <!-- / Content -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
