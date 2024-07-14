@@ -93,4 +93,3 @@
   </div>
   <!-- / Layout wrapper -->
 </body>
-<?php require('../layouts/footer-scripts.php'); ?>

@@ -30,13 +30,13 @@
                       <th>#</th>
                       <th>Title</th>
                       <th>Description</th>
-                    
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
                     <?php
+                    // Assuming $con is properly initialized
                     $select = "SELECT * FROM resume_category";
                     $result = mysqli_query($con, $select);
                     $i = 1;
@@ -46,7 +46,6 @@
                       <td><?php echo $i; ?></td>
                       <td><?php echo $row['title']; ?></td>
                       <td><?php echo $row['description']; ?></td>
-                      
                       <td><?php echo $row['status'] == 'active' ? 'Active' : 'Inactive'; ?></td>
                       <td>
                         <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $row['id']; ?>" role="button">Edit</a>
@@ -71,6 +70,6 @@
     </div>
   </div>
   <!-- / Layout wrapper -->
-</body>
 
 <?php require('../layouts/footer.php'); ?>
+</body>

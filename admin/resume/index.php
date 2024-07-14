@@ -19,7 +19,7 @@
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4">
-              <a class="btn btn-primary btn-sm" href="create.php" role="button">Create Resume </a>
+              <a class="btn btn-primary btn-sm" href="create.php" role="button">Create Resume</a>
             </h4>
 
             <div class="card">
@@ -30,7 +30,7 @@
                       <th>#</th>
                       <th>Resume_Category_Id</th>
                       <th>Title</th>
-                      <th>Description</th>  
+                      <th>Description</th>
                       <th>Start Date</th>
                       <th>End Date</th>
                       <th>Address</th>
@@ -40,6 +40,7 @@
                   </thead>
                   <tbody class="table-border-bottom-0">
                     <?php
+                    // Assuming $con is properly initialized
                     $select = "SELECT * FROM resume";
                     $result = mysqli_query($con, $select);
                     $i = 1;
@@ -75,6 +76,6 @@
     </div>
   </div>
   <!-- / Layout wrapper -->
-</body>
 
 <?php require('../layouts/footer.php'); ?>
+</body>

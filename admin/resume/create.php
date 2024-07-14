@@ -16,7 +16,7 @@
                                 <div class="col-12">
                                     <div class="card shadow-sm">
                                         <div class="card-header d-flex align-items-center justify-content-between bg-primary text-white">
-                                            <h4 class="fw-bold mb-0">Add Files</h4>
+                                            <h4 class="fw-bold mb-0">Add Resume</h4>
                                             <a class="btn btn-light btn-sm" href="index.php" role="button">Manage Resume </a>
                                         </div>
                                         <div class="card-body">
