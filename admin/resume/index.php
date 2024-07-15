@@ -28,7 +28,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Resume_Category_Id</th>
+                      <th>Resume Category Title</th>
                       <th>Title</th>
                       <th>Description</th>
                       <th>Start Date</th>
@@ -41,27 +41,29 @@
                   <tbody class="table-border-bottom-0">
                     <?php
                     // Assuming $con is properly initialized
-                    $select = "SELECT * FROM resume";
-                    $result = mysqli_query($con, $select);
+                    $query = "SELECT resume.*, resume_category.title AS resume_category_title 
+                              FROM resume 
+                              INNER JOIN resume_category 
+                              ON resume.resume_category_id = resume_category.id";
+                    $result = mysqli_query($con, $query);
                     $i = 1;
                     while ($row = mysqli_fetch_assoc($result)) {
-                    ?> 
-                    <tr>
-                      <td><?php echo $i; ?></td>
-                      <td><?php echo $row['resume_category_id']; ?></td>
-                      <td><?php echo $row['title']; ?></td>
-                      <td><?php echo $row['description']; ?></td>
-                      <td><?php echo $row['start_date']; ?></td>
-                      <td><?php echo $row['end_date']; ?></td>
-                      <td><?php echo $row['address']; ?></td>
-                      <td><?php echo $row['status'] == 'active' ? 'Active' : 'Inactive'; ?></td>
-                      <td>
-                        <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $row['id']; ?>" role="button">Edit</a>
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this data?')" href="delete.php?id=<?php echo $row['id']; ?>" role="button">Delete</a>
-                      </td>
-                    </tr>
+                    ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row['resume_category_title']; ?></td>
+                        <td><?php echo $row['title']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
+                        <td><?php echo $row['start_date']; ?></td>
+                        <td><?php echo $row['end_date']; ?></td>
+                        <td><?php echo $row['address']; ?></td>
+                        <td><?php echo ($row['status'] == 0) ? 'Active' : 'Inactive'; ?></td>
+                        <td>
+                          <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $row['id']; ?>" role="button">Edit</a>
+                          <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this data?')" href="delete.php?id=<?php echo $row['id']; ?>" role="button">Delete</a>
+                        </td>
+                      </tr>
                     <?php
-                    $i++;
                     } ?>
                   </tbody>
                 </table>
@@ -70,12 +72,12 @@
           </div>
           <!-- / Content -->
         </div>
-        <!-- / Content wrapper -->  
+        <!-- / Content wrapper -->
       </div>
       <!-- / Layout container -->
     </div>
   </div>
   <!-- / Layout wrapper -->
 
-<?php require('../layouts/footer.php'); ?>
-</body>
+  <?php require('../layouts/footer.php'); ?>
+
