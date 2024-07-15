@@ -1,19 +1,18 @@
-
 <?php require('./includes/header.php'); ?>
 
 <body>
- 
+
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
-  <?php
-  $query = "SELECT title, sub_title,image FROM hero WHERE id = 1 LIMIT 1";
-  $result = mysqli_query($con, $query);
-  while($row = mysqli_fetch_array($result)) {
-    $title = $row['title']; 
-    $sub_title = $row['sub_title'];
-    $image = $row['image'];
-  }
+    <?php
+    $query = "SELECT title, sub_title,image FROM hero WHERE id = 1 LIMIT 1";
+    $result = mysqli_query($con, $query);
+    while ($row = mysqli_fetch_array($result)) {
+      $title = $row['title'];
+      $sub_title = $row['sub_title'];
+      $image = $row['image'];
+    }
     ?>
     <h1><?php echo $title; ?></h1>
     <h2><?php echo  $sub_title; ?></h2>
@@ -22,11 +21,11 @@
 
 
     <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
-              
+
 
 
   </section><!-- End Hero -->
-  
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
@@ -54,15 +53,15 @@
           <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
-            <?php
-             $query = "SELECT title, description,image FROM about WHERE id = 10 ";
-             $result = mysqli_query($con, $query);
-            while($row = mysqli_fetch_array($result)) {
-            $title = $row['title']; 
-            $description = $row['description'];
-            $image = $row['image'];
-             }
-             ?>
+              <?php
+              $query = "SELECT title, description,image FROM about WHERE id = 1 ";
+              $result = mysqli_query($con, $query);
+              while ($row = mysqli_fetch_array($result)) {
+                $title = $row['title'];
+                $description = $row['description'];
+                $image = $row['image'];
+              }
+              ?>
               <h3><?php echo $title; ?></h3>
               <p>
                 <?php echo $description; ?>
@@ -113,17 +112,17 @@
       <div class="container">
 
         <div class="section-title">
-        <?php
-  $query = "SELECT title, description FROM skills WHERE id = 10";
-  $result = mysqli_query($con, $query);
-  while($row = mysqli_fetch_array($result)) {
-    $title = $row['title']; 
-    $description = $row['description'];
-  }
-    ?>
- 
+          <?php
+          $query = "SELECT title, description FROM skills WHERE id = 2";
+          $result = mysqli_query($con, $query);
+          while ($row = mysqli_fetch_array($result)) {
+            $title = $row['title'];
+            $description = $row['description'];
+          }
+          ?>
+
           <h2><?php echo  $title; ?></h2>
-          <p><?php echo $description;?></p>
+          <p><?php echo $description; ?></p>
 
         </div>
 
@@ -133,15 +132,34 @@
 
             <div class="progress">
               <span class="skill">HTML <i class="val">100%</i></span>
-              <p></p>
-              
+              <?
+              $query = "SELECT description FROM files WHERE id = 1";
+              $result = mysqli_query($con, $query);
+              while ($row = mysqli_fetch_array($result)) {
+                $description = $row['description'];
+              }
+              ?>
+
+
+              <p><?php echo $description; ?></p>
+
+
             </div>
 
             <div class="progress">
               <span class="skill">CSS <i class="val">90%</i></span>
-              <!-- <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> -->
+              <?
+              $query = "SELECT description FROM files WHERE id = 1";
+              $result = mysqli_query($con, $query);
+              while ($row = mysqli_fetch_array($result)) {
+                $description = $row['description'];
+              }
+              ?>
+
+              <h2><?php echo $description; ?></h2>
+
+              
+              
             </div>
 
             <div class="progress">
@@ -193,22 +211,22 @@
         </div>
 
         <div class="col-lg-6">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Alice Barkley</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-              <p>
-              <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
-              </ul>
-              </p>
-            </div>
+          <h3 class="resume-title">Sumary</h3>
+          <div class="resume-item pb-0">
+            <h4>Alice Barkley</h4>
+            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+            <p>
+            <ul>
+              <li>Portland par 127,Orlando, FL</li>
+              <li>(123) 456-7891</li>
+              <li>alice.barkley@example.com</li>
+            </ul>
+            </p>
           </div>
+        </div>
 
         <div class="row">
-         
+
 
           <?php
           $query = "SELECT resume.*, resume_category.title AS resume_category_title 
@@ -254,6 +272,7 @@
       <div class="container">
 
         <div class="section-title">
+          
           <h2>Services</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
@@ -546,7 +565,7 @@
 
           <div class="col-lg-4 col-md-4">
             <div class="contact-about">
-              <h3>Lonely</h3>
+              <h3>Prajal Jung Kunwar</h3>
               <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
               <div class="social-links">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>

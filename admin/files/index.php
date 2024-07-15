@@ -47,7 +47,7 @@
                       <td><?php echo $row['title']; ?></td>
                       <td><?php echo $row['description']; ?></td>
                       
-                      <td><?php echo $row['status'] == 'active' ? 'Active' : 'Inactive'; ?></td>
+                      <td><?php echo ($row['status'] == 0) ? 'Active' : 'Inactive'; ?></td>
                       <td>
                         <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $row['id']; ?>" role="button">Edit</a>
                         <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this data?')" href="delete.php?id=<?php echo $row['id']; ?>" role="button">Delete</a>
