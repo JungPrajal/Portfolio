@@ -101,18 +101,18 @@
               <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon fas fa-sliders-h"></i>
-                <div data-i18n="Layouts">Sliders</div>
+                <div data-i18n="Layouts">Skills</div>
               </a>
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="../sliders/create.php" class="menu-link">
-                    <div data-i18n="Without menu">Add sliders</div>
+                  <a href="../skills/create.php" class="menu-link">
+                    <div data-i18n="Without menu">Add Skills</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="../sliders/index.php" class="menu-link">
-                    <div data-i18n="Without navbar">Manage sliders</div>
+                  <a href="../skills/index.php" class="menu-link">
+                    <div data-i18n="Without navbar">Manage Skills</div>
                   </a>
                 </li>
               </ul>

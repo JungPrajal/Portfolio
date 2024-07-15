@@ -57,8 +57,8 @@
                                                     <label for="status" class="form-label">Status</label>
                                                     <select class="form-control" name="status" id="status" required>
                                                         <option value="">Select Status</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="inactive">Inactive</option>
+                                                        <option value="0">Active</option>
+                                                        <option value="1">Inactive</option>
                                                     </select>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary" name="save">Submit</button>
@@ -75,4 +75,3 @@
         </div>
     </div>
 </body>
-</html>

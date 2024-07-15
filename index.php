@@ -1,20 +1,39 @@
+
 <?php require('./includes/header.php'); ?>
 
 <body>
+ 
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
-    <h1>Hi, I'm Prajal JK!</h1>
-    <h2>I am a software</h2>
+  <?php
+  $query = "SELECT title, sub_title,image FROM hero WHERE id = 1 LIMIT 1";
+  $result = mysqli_query($con, $query);
+  while($row = mysqli_fetch_array($result)) {
+    $title = $row['title']; 
+    $sub_title = $row['sub_title'];
+    $image = $row['image'];
+  }
+    ?>
+    <h1><?php echo $title; ?></h1>
+    <h2><?php echo  $sub_title; ?></h2>
+    <!-- <img src="./admin/./uploads/ echo $image; ?>" alt="Hero Image" class="img-fluid"> -->
+    <img src="../uploads/<?php echo $row['image']; ?>" alt="" width="100px">
+
+
     <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+              
+
+
   </section><!-- End Hero -->
+  
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">Lonely</a></h1>
+        <h1><a href="index.html">Prajal Jung Kunwar</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -35,10 +54,20 @@
           <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Voluptatem dignissimos provident quasi</h3>
+            <?php
+             $query = "SELECT title, description,image FROM about WHERE id = 10 ";
+             $result = mysqli_query($con, $query);
+            while($row = mysqli_fetch_array($result)) {
+            $title = $row['title']; 
+            $description = $row['description'];
+            $image = $row['image'];
+             }
+             ?>
+              <h3><?php echo $title; ?></h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                <?php echo $description; ?>
               </p>
+
               <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
@@ -84,8 +113,18 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Skills</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <?php
+  $query = "SELECT title, description FROM skills WHERE id = 10";
+  $result = mysqli_query($con, $query);
+  while($row = mysqli_fetch_array($result)) {
+    $title = $row['title']; 
+    $description = $row['description'];
+  }
+    ?>
+ 
+          <h2><?php echo  $title; ?></h2>
+          <p><?php echo $description;?></p>
+
         </div>
 
         <div class="row skills-content">
@@ -94,23 +133,22 @@
 
             <div class="progress">
               <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              <p></p>
+              
             </div>
 
             <div class="progress">
               <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
+              <!-- <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              </div> -->
             </div>
 
             <div class="progress">
               <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
+              <!-- <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              </div> -->
             </div>
 
           </div>
@@ -119,23 +157,23 @@
 
             <div class="progress">
               <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
+              <!-- <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              </div> -->
             </div>
 
             <div class="progress">
-              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
+              <span class="skill">UI/UX <i class="val">90%</i></span>
+              <!-- <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              </div> -->
             </div>
 
             <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
+              <span class="skill">Flutter <i class="val">55%</i></span>
+              <!-- <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+              </div> -->
             </div>
 
           </div>

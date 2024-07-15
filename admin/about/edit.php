@@ -70,7 +70,7 @@
                                                         echo "<meta http-equiv=\"refresh\" content=\"2;URL=index.php\">";
                                                     }
                                                 } else {
-                                                    $query = "UPDATE sliders SET title='$title', description='$description', status='$status', updated_at=NOW() WHERE id=$id";
+                                                    $query = "UPDATE about SET title='$title', description='$description', status='$status', updated_at=NOW() WHERE id=$id";
                                                     $result = mysqli_query($con, $query);
                                                     if ($result) {
                                                         echo "<div class='alert alert-success'>Slider updated successfully.</div>";

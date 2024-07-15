@@ -56,8 +56,8 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="status">Status</label>
                                                 <select class="form-control" id="status" name="status" required>
-                                                    <option value="1" <?php echo $data['status'] == '1' ? 'selected' : ''; ?>>Active</option>
-                                                    <option value="0" <?php echo $data['status'] == '0' ? 'selected' : ''; ?>>Inactive</option>
+                                                    <option value="1" <?php echo $data['status'] == '0' ? 'selected' : ''; ?>>Active</option>
+                                                    <option value="0" <?php echo $data['status'] == '1' ? 'selected' : ''; ?>>Inactive</option>
                                                 </select>
                                             </div>
                                             <button type="submit" name="save" class="btn btn-primary">Save</button>
