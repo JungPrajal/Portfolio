@@ -8,12 +8,12 @@
     <?php
     $query = "SELECT * FROM hero";
     $result = mysqli_query($con, $query);
-    ($row = mysqli_fetch_array($result)) 
+    ($row = mysqli_fetch_assoc($result));
     ?>
-    <h1><?php echo $title; ?></h1>
-    <h2><?php echo  $sub_title; ?></h2>
+    <h1><?php echo $row['title']; ?></h1>
+    <h2><?php echo  $row['sub_title']; ?></h2>
     <!-- <img src="./admin/./uploads/ echo $image; ?>" alt="Hero Image" class="img-fluid"> -->
-    <img src="../uploads/<?php echo $row['image']; ?>" alt="" width="100px">
+
 
 
     <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
@@ -43,154 +43,88 @@
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-      <div class="container">
+  <div class="container">
 
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <?php
-              $query = "SELECT *FROM about ";
-              $result = mysqli_query($con, $query);
-               ($row = mysqli_fetch_array($result)) 
-                
-              
-              ?>
-              <h3><?php echo $title; ?></h3>
-              <p>
-                <?php echo $description; ?>
-              </p>
+    <div class="row no-gutters">
+      <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
+      <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+        <div class="content d-flex flex-column justify-content-center">
+          <?php
+          $about_query = "SELECT * FROM about";  // Added WHERE clause to get specific row if needed
+          $about_result = mysqli_query($con, $about_query);
+          if ($row = mysqli_fetch_array($about_result)) {
+              $title = $row['title'];
+              $description = $row['description'];
+              $image = $row['image'];
+          } else {
+              $title = 'Default Title';
+              $description = 'Default Description';
+          }
+          ?>
+          <h3><?php echo $row['title']; ?></h3>
 
-              <div class="row">
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-emoji-smile"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
-                  </div>
-                </div>
+          <p>
+            <?php echo $row['description']; ?>
+          </p>
 
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-journal-richtext"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
-                  </div>
-                </div>
+          <div class="row">
+            <div class="col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class=<?php echo $row['image']; ?>></i>
 
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-clock"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
-                  </div>
-                </div>
+                <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong><?php echo $row['title']?></strong> <?php echo $row['description']?></p>
 
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-award"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
-                  </div>
-                </div>
               </div>
-            </div><!-- End .content-->
+            </div> 
           </div>
         </div>
-
       </div>
-    </section><!-- End About Section -->
+    </div>
+
+  </div>
+</section>
+
+<!-- End About Section -->
 
     <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
+    <!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+  <div class="container">
 
-        <div class="section-title">
-          <?php
-          $query = "SELECT* FROM skills ";
-          $result = mysqli_query($con, $query);
-          ($row = mysqli_fetch_array($result)) 
-          ?>
+    <div class="section-title">
+      <?php
+      $skill_query = "SELECT * FROM skills LIMIT 1";
+      $skill_result = mysqli_query($con, $skill_query);
+      $row = mysqli_fetch_array($skill_result);
+      ?>
 
-          <h2><?php echo  $title; ?></h2>
-          <p><?php echo $description; ?></p>
+      <h2><?php echo $row['title']; ?></h2>
+      <p><?php echo $row['description']; ?></p>
 
-        </div>
+    </div>
 
-        <div class="row skills-content">
+    <div class="row skills-content">
+      <?php
+      $query = "SELECT * FROM skills LIMIT 4";
+      $result = mysqli_query($con, $query);
+      while ($row = mysqli_fetch_array($result)) {
+      ?>
+        <div class="col-lg-6">
+          <div class="progress">
+            <span class="skill"><?php echo $row['title']; ?></span>
 
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <?
-              $query = "SELECT description FROM files WHERE id = 1";
-              $result = mysqli_query($con, $query);
-              while ($row = mysqli_fetch_array($result)) {
-                $description = $row['description'];
-              }
-              ?>
-
-
-              <p><?php echo $description; ?></p>
-
-
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <?
-              $query = "SELECT description FROM files WHERE id = 1";
-              $result = mysqli_query($con, $query);
-              while ($row = mysqli_fetch_array($result)) {
-                $description = $row['description'];
-              }
-              ?>
-
-              <h2><?php echo $description; ?></h2>
-
-              
-              
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <!-- <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> -->
-            </div>
-
+            <p><?php echo $row['description']; ?></p>
           </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <!-- <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> -->
-            </div>
-
-            <div class="progress">
-              <span class="skill">UI/UX <i class="val">90%</i></span>
-              <!-- <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> -->
-            </div>
-
-            <div class="progress">
-              <span class="skill">Flutter <i class="val">55%</i></span>
-              <!-- <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> -->
-            </div>
-
-          </div>
-
         </div>
+      <?php
+      }
+      ?>
+    </div>
 
-      </div>
-    </section><!-- End Skills Section -->
+  </div>
+</section>
+<!-- End Skills Section -->
 
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume section-bg">
@@ -263,7 +197,7 @@
       <div class="container">
 
         <div class="section-title">
-          
+
           <h2>Services</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
