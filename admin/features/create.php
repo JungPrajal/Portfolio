@@ -50,21 +50,17 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="icon" class="form-label">Icon</label>
-                                                    <select class="form-control" name="icon" id="icon" required>
-                                                        <option value="">Select Icon</option>
-                                                        <!--  Font Awesome icons -->
-                                                        <option value="fa fa-home">Home</option>
-                                                        <option value="fa fa-user">User</option>
-                                                        <option value="fa fa-cog">Settings</option>
+                                                    <textarea class="form-control" name="icon" id="icon" required>
                                                         
-                                                    </select>
+                                                        
+                                                    </textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="status" class="form-label">Status</label>
                                                     <select class="form-control" name="status" id="status" required>
                                                         <option value="">Select Status</option>
-                                                        <option value="Active">1</option>
-                                                        <option value="Inactive">0</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="0">Inactive</option>
                                                     </select>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary" name="save">Submit</button>
