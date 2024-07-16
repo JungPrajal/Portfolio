@@ -40,6 +40,14 @@
                   <tbody class="table-border-bottom-0">
                     <!-- php -->
                     <?php
+                    if (isset($_GET['msg'])) {
+                      $msg = $_GET['msg'];
+                      if ($msg == 'success') {
+                        echo "<p class='text-success'>Data is DELETED.</p>";
+                        header('Refresh:2; URL=index.php');
+                      }
+                    
+                    }
 
                     $select = "SELECT * FROM users";
                     $result = mysqli_query($con, $select);
