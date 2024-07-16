@@ -1,6 +1,6 @@
 
 <?php 
-require('../config/config.php');
+require('../z');
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];

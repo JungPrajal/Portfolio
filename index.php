@@ -6,13 +6,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
     <?php
-    $query = "SELECT title, sub_title,image FROM hero WHERE id = 1 LIMIT 1";
+    $query = "SELECT * FROM hero";
     $result = mysqli_query($con, $query);
-    while ($row = mysqli_fetch_array($result)) {
-      $title = $row['title'];
-      $sub_title = $row['sub_title'];
-      $image = $row['image'];
-    }
+    ($row = mysqli_fetch_array($result)) 
     ?>
     <h1><?php echo $title; ?></h1>
     <h2><?php echo  $sub_title; ?></h2>
@@ -54,13 +50,11 @@
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
               <?php
-              $query = "SELECT title, description,image FROM about WHERE id = 1 ";
+              $query = "SELECT *FROM about ";
               $result = mysqli_query($con, $query);
-              while ($row = mysqli_fetch_array($result)) {
-                $title = $row['title'];
-                $description = $row['description'];
-                $image = $row['image'];
-              }
+               ($row = mysqli_fetch_array($result)) 
+                
+              
               ?>
               <h3><?php echo $title; ?></h3>
               <p>
@@ -113,12 +107,9 @@
 
         <div class="section-title">
           <?php
-          $query = "SELECT title, description FROM skills WHERE id = 2";
+          $query = "SELECT* FROM skills ";
           $result = mysqli_query($con, $query);
-          while ($row = mysqli_fetch_array($result)) {
-            $title = $row['title'];
-            $description = $row['description'];
-          }
+          ($row = mysqli_fetch_array($result)) 
           ?>
 
           <h2><?php echo  $title; ?></h2>
