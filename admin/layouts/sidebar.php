@@ -126,12 +126,12 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="../skills/create.php" class="menu-link">
+                  <a href="../sliders/create.php" class="menu-link">
                     <div data-i18n="Without menu">Add sliders</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="../skills/index.php" class="menu-link">
+                  <a href="../sliders/index.php" class="menu-link">
                     <div data-i18n="Without navbar">Manage sliders</div>
                   </a>
                 </li>

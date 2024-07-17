@@ -8,7 +8,7 @@
                 <?php require('../layouts/navbar.php'); ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Edit services</span></h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Edit servics</span></h4>
 
                         <div class="row">
                             <div class="col-xxl">
@@ -18,7 +18,7 @@
                                         // PHP code goes here
                                         if (isset($_GET['id'])) {
                                             $id = $_GET['id'];
-                                            $sql = "SELECT * FROM services WHERE id = '$id'";
+                                            $sql = "SELECT * FROM servics WHERE id = '$id'";
                                             $select_result = mysqli_query($con, $sql);
                                             $data = mysqli_fetch_assoc($select_result);
                                         }
@@ -48,7 +48,7 @@
                                                             }
 
                                                             if (move_uploaded_file($_FILES['icon']['tmp_name'], $target_file)) {
-                                                                $query = "UPDATE services SET title='$title', description='$description', icon='$finalname', status='$status', updated_at=NOW() WHERE id=$id";
+                                                                $query = "UPDATE servics SET title='$title', description='$description', icon='$finalname', status='$status', updated_at=NOW() WHERE id=$id";
                                                                 $result = mysqli_query($con, $query);
                                                                 if ($result) {
                                                                     echo "<div class='alert alert-success'>File uploaded and name updated successfully.</div>";
@@ -73,10 +73,10 @@
                                                     $query = "UPDATE sliders SET title='$title', description='$description', status='$status', updated_at=NOW() WHERE id=$id";
                                                     $result = mysqli_query($con, $query);
                                                     if ($result) {
-                                                        echo "<div class='alert alert-success'>services updated successfully.</div>";
+                                                        echo "<div class='alert alert-success'>servics updated successfully.</div>";
                                                         echo "<meta http-equiv=\"refresh\" content=\"2;URL=index.php\">";
                                                     } else {
-                                                        echo "<div class='alert alert-danger'>Failed to update services.</div>";
+                                                        echo "<div class='alert alert-danger'>Failed to update servics.</div>";
                                                         echo "<meta http-equiv=\"refresh\" content=\"2;URL=index.php\">";
                                                     }
                                                 }

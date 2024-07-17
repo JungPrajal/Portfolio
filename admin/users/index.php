@@ -44,7 +44,7 @@
                       $msg = $_GET['msg'];
                       if ($msg == 'success') {
                         echo "<p class='text-success'>Data is DELETED.</p>";
-                        header('Refresh:2; URL=index.php');
+                        //header('Refresh:2; URL=index.php');
                       }
                     
                     }
